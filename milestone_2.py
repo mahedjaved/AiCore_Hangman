@@ -12,6 +12,10 @@ print(word)
 
 # %% Task -03
 guess = input("Enter a single letter: ")
-assert type(guess) == str and guess.lower() in ['abcdefghijklmnopqrstuvwxyz']
+# assert type(guess) == str and any(guess.lower() in string for string in ['abcdefghijklmnopqrstuvwxyz'])
+if len(guess) == 1 and any(guess.lower() in string for string in ['abcdefghijklmnopqrstuvwxyz']):
+    print("Good guess!")
+else:
+    print("Oops! That is not a valid input.")
 print(f"You have picked: {guess}")
 # %%
