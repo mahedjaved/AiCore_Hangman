@@ -5,28 +5,44 @@ import random
 class Hangman:
     def __init__(
             self,
-            word,
-            word_guessed,
-            num_letters,
             word_list,
-            list_of_guesses,
             num_lives=5,
     ):
-        self.word = word
-        self.word_guessed = word_guessed
-        self.num_letters = num_letters
         self.word_list = word_list
-        self.list_of_guesses = list_of_guesses
         self.num_lives = num_lives
+
+        # random pick from word list
+        self.word = random.choice(self.word_list)
 
         # set the word_guessed list as a list of '_' with same size as word string
         self.word_guessed = ['_' for i in range(len(self.word))]
 
         # store all the unique characters in the secret word into a list of unique characters
-        unique_chars = list(set([word_ for word_ in word]))
+        unique_chars = list(set([word_ for word_ in self.word]))
         # pick from unique characters that are not in guessed list
         self.num_letters = len(
             [unique_char for unique_char in unique_chars if unique_char not in self.word_guessed])
 
         # A list of the guesses that have already been tried. Set this to an empty list initially
         self.list_of_guesses = []
+
+    def check_guess(self, guess):
+        guess = guess.lower()
+        if guess in self.word:
+            print(f"Good guess! {guess} is in the word.")
+            # return True
+        else:
+            print(f"Sorry, {guess} is not in the word. Try again.")
+            # return False
+
+    def ask_for_input(self):
+        while True:
+            guess = input("Enter your guess: ")
+            if (not guess.isalpha()) and (not len(guess) == 1):
+                print(
+                    "Invalid letter. Please, enter a single alphabetical character.")
+            elif (guess in self.list_of_guesses):
+                print("You already tried that letter!")
+
+            else:
+                self.check_guess(guess)

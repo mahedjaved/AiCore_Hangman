@@ -10,12 +10,14 @@ Each of the milestones are devided into seperate .py files
 
 The .py files are further divided into seperate tasks that can run into seperate code cells in VSCode
 
+#TODO optimise the unique character building, currently it is done by storing indices to pop
+
 # Special Cases
 
 The following is used to special cases if
 
-1. A '-' in the word :
-   [Solution adopted] word.replace('-', ' ')
+1. A '_' in the word :
+   [Solution adopted] word.replace('_', ' ')
 
 # Table of Contents
 
