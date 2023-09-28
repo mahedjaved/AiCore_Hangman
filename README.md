@@ -12,15 +12,19 @@ Each of the milestones are devided into seperate .py files
 
 (3) milestone_4.py : Develops code from milestone_3 and gives an OOP structure. The main class is termed Hangman, it contains two methods: a) check_guess b) ask_for_input.
 
+(4) milestone_5.py : Builds on code from milestone_4.py and adds an external function that runs the Hangman class seperately
+
 # Installation instructions
 
 The .py files are further divided into seperate tasks that can run into seperate code cells in VSCode : https://code.visualstudio.com/docs/setup/windows
 
-#TODO
-Usage instructions
+# Usage instructions
 
-#TODO :-
-License information
+You can run any of the tasks as seperate cells in VSCode with Jupyter Notebook extensions installed
+
+# License information
+
+MIT License
 
 # Special Cases
 
