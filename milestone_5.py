@@ -47,3 +47,19 @@ class Hangman:
                 self.check_guess(guess)
             if '_' not in self.word_guessed:
                 break
+
+
+def play_game(word_list):
+    num_lives = 5
+    game = Hangman(num_lives=num_lives, word_list=word_list)
+    while True:
+        if game.num_lives == 0:
+            print("You lost!")
+        if game.num_lives > 0:
+            game.ask_for_input()
+        if game.num_lives != 0 and not game.num_letters > 0:
+            print("Congratulations. You won the game!")
+
+
+def __main__():
+    play_game(['apple', 'bannanas'])
