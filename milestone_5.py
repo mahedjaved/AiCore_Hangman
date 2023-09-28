@@ -26,27 +26,25 @@ class Hangman:
         guess = guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
+            self.num_letters = self.num_letters - 1
             for word_idx, word in enumerate(self.word):
                 if word == guess:
                     self.word_guessed[word_idx] = word
-
         else:
             print(f"Sorry, {guess} is not in the word. Try again.")
-            self.num_letters = self.num_letters - 1
+            self.num_lives = self.num_lives - 1
             print(f"You have {self.num_lives} lives left.")
 
     def ask_for_input(self):
-        while True:
-            guess = input("Enter your guess: ")
-            if (not guess.isalpha()) and (not len(guess) == 1):
-                print(
-                    "Invalid letter. Please, enter a single alphabetical character.")
-            elif (guess in self.list_of_guesses):
-                print("You already tried that letter!")
-            else:
-                self.check_guess(guess)
-            if '_' not in self.word_guessed:
-                break
+        guess = input("Enter your guess: ")
+        if (not guess.isalpha()) and (not len(guess) == 1):
+            print(
+                "Invalid letter. Please, enter a single alphabetical character.")
+        elif (guess in self.list_of_guesses):
+            print("You already tried that letter!")
+        else:
+            self.check_guess(guess)
+            self.list_of_guesses.append(guess)
 
 
 def play_game(word_list):
@@ -55,11 +53,14 @@ def play_game(word_list):
     while True:
         if game.num_lives == 0:
             print("You lost!")
+            break
         if game.num_lives > 0:
             game.ask_for_input()
         if game.num_lives != 0 and not game.num_letters > 0:
             print("Congratulations. You won the game!")
+            print(f"The secret word was: {game.word}")
+            break
 
 
-def __main__():
+if __name__ == "__main__":
     play_game(['apple', 'bannanas'])
