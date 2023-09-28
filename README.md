@@ -22,6 +22,8 @@ The .py files are further divided into seperate tasks that can run into seperate
 
 You can run any of the tasks as seperate cells in VSCode with Jupyter Notebook extensions installed
 
+You can choose your arguments by replaing the list on line 66 with your selection
+
 Run the code by typing in the VSCode terminal `python ./milestone_5.py`
 
 # License information
